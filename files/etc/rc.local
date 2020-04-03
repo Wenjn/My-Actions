@@ -1,0 +1,6 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+ethtool -s eth0 speed 1000 duplex full
+
+exit 0
