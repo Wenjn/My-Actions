@@ -1,0 +1,40 @@
+
+config defaults
+	option syn_flood '1'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'REJECT'
+	option fullcone '1'
+	option flow_offloading '1'
+	option flow_offloading_hw '0'
+
+config zone
+	option name 'lan'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'ACCEPT'
+	option network 'lan WAN6'
+
+config include
+	option path '/etc/firewall.user'
+
+config include 'adbyby'
+	option type 'script'
+	option path '/var/etc/adbyby.include'
+	option reload '1'
+
+config include 'shadowsocksr'
+	option type 'script'
+	option path '/var/etc/shadowsocksr.include'
+	option reload '1'
+
+config include 'mia'
+	option type 'script'
+	option path '/etc/mia.include'
+	option reload '1'
+
+config include 'unblockmusic'
+	option type 'script'
+	option path '/var/etc/unblockmusic.include'
+	option reload '1'
+
