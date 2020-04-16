@@ -57,7 +57,7 @@ jobs:
       
     - name: Add package
       run: |
-        sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
+        sed -i 's/#src-git helloworld/src-git helloworld/g' openwrt/feeds.conf.default
     #      sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' openwrt/feeds.conf.default
       
     
