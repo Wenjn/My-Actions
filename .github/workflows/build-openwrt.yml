@@ -55,13 +55,14 @@ jobs:
     - name: Clone source code
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
       
-    #  - name: Add package
-    #    run: |
+    - name: Add package
+      run: |
+        sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
     #      sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' openwrt/feeds.conf.default
+      
     
     - name: Add luci theme
       run: |
-        sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
         rm -rf openwrt/package/lean/luci-theme-argon
         git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git openwrt/package/lean/luci-theme-argon
 
