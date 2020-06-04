@@ -60,6 +60,11 @@ jobs:
         sed -i 's/#src-git helloworld/src-git helloworld/g' openwrt/feeds.conf.default
     #      sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' openwrt/feeds.conf.default
       
+    - name: Update V2ray
+      run: |
+        sed -i 's/4.23.3/4.23.4/g' openwrt/package/lean/v2ray/Makefile
+        sed -i 's/39558c5a9300158a4adf76d099b210790f7ef9705ce2909c6bdc2fccc70d5c69/b401f98cabe849033966acb1c6132ae4d6b178ab45330543be3b2356c8348d10/g' openwrt/package/lean/v2ray/Makefile
+      
     
     - name: Add luci theme
       run: |
