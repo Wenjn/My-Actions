@@ -58,6 +58,7 @@ jobs:
       
     - name: Add package
       run: |
+        git clone -b test https://github.com/frainzy1477/luci-app-clash.git package/lean/luci-app-clash
         sed -i 's/#src-git helloworld/src-git helloworld/g' openwrt/feeds.conf.default
     #      sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' openwrt/feeds.conf.default
       
