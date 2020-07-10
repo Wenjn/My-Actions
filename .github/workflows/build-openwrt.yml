@@ -45,7 +45,6 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
-        sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
         sudo -E apt-get -qq update
         sudo -E apt-get -qq install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget swig
         sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -58,8 +57,10 @@ jobs:
       
     - name: Add package
       run: |
-        git clone -b test https://github.com/frainzy1477/luci-app-clash.git package/lean/luci-app-clash
+        sed -i '$a src-git lienol https://github.com/TinyTitanPro/lienol-openwrt-package.git' openwrt/feeds.conf.default
         sed -i 's/#src-git helloworld/src-git helloworld/g' openwrt/feeds.conf.default
+        git clone https://github.com/frainzy1477/luci-theme-rosyy.git openwrt/package/lean/luci-theme-rosy
+        git clone -b test https://github.com/frainzy1477/luci-app-clash.git openwrt/package/lean/luci-app-clash
     #      sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' openwrt/feeds.conf.default
       
     #  - name: Update V2ray
