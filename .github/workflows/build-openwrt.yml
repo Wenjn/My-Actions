@@ -59,7 +59,6 @@ jobs:
       run: |
         sed -i 's/#src-git helloworld/src-git helloworld/g' openwrt/feeds.conf.default
     #   git clone https://github.com/frainzy1477/luci-theme-rosyy.git openwrt/package/lean/luci-theme-rosy
-    #   git clone -b test https://github.com/frainzy1477/luci-app-clash.git openwrt/package/lean/luci-app-clash
     #   sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' openwrt/feeds.conf.default
       
     #  - name: Update V2ray
@@ -72,6 +71,7 @@ jobs:
       run: |
         rm -rf openwrt/package/lean/luci-theme-argon
         git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git openwrt/package/lean/luci-theme-argon
+    #   git clone -b test https://github.com/frainzy1477/luci-app-clash.git openwrt/package/lean/luci-app-clash
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
